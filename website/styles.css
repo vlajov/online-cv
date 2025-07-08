@@ -1,0 +1,442 @@
+/* CSS Variables for consistent colors */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #4ca1af;
+    --accent-color: #1a5e8e;
+    --light-bg: #f0f7ff;
+    --white: #ffffff;
+    --link-color: #0645ad;
+    --link-hover: #1a5e8e;
+    --light-blue-bg: #e8f4f8;
+    --very-light-blue: #f9fcff;
+}
+
+/* Base reset for padding and margin for all elements */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: var(--light-bg);
+}
+
+/* Skip link for accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--secondary-color);
+    color: var(--link-color);
+    padding: 8px;
+    z-index: 100;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Container for centering the content */
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* Header styling */
+header {    
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: 20px;
+    background-size: cover;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+/* New header container for flex layout */
+.header-container {
+    display: flex;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.profile-photo {
+    flex: 0 0 auto;
+    margin-right: 30px;
+}
+
+.profile-info {
+    flex: 1;
+    text-align: left;
+}
+
+/* Header image and name styling */
+.headshot {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    margin-bottom: 5px;
+    font-size: 2.2em;
+}
+
+.location {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+/* Contact information styling */
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 1em;
+}
+
+.contact-details p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* LinkedIn line with download link */
+.linkedin-line {
+    justify-content: space-between;
+}
+
+.download-link {
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+.contact-icon {
+    margin-right: 10px;
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+    color: var(--white);
+}
+
+.fab.contact-icon {
+    margin-right: 10px; /* Consistent margin with other icons */
+    color: var(--white);
+}
+
+.fab.fa-github {
+    color: #000000; /* GitHub color */
+}
+
+.contact-details a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    border-bottom: 1px dotted rgba(255,255,255,0.5);
+}
+
+.contact-details a:hover {
+    color: var(--light-blue-bg);
+    border-bottom: 1px solid var(--light-blue-bg);
+}
+
+/* Section styling for employment, education, and skills */
+section {
+    background: var(--white);
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    border-top: 3px solid var(--secondary-color);
+}
+
+section h2 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+/* Timeline styling */
+#timeline .entry {
+    border-left: 3px solid var(--secondary-color);
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#timeline .entry-header {
+    background: var(--light-blue-bg);
+    padding: 10px 15px;
+    margin-left: -3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-bottom: 1px solid #d0e8f2;
+}
+
+#timeline .entry-header:hover {
+    background: #d0e8f2;
+    color: var(--primary-color);
+}
+
+/* Style for h3 and .date within entry-header */
+.entry-header h3 {
+    margin: 0; /* Remove default margin */
+    font-size: 1.2em; /* Adjust size as needed */
+    flex: 1; /* Take up available space */
+}
+
+.entry-header .date {
+    margin: 0; /* Remove default margin */
+    font-size: 1em; /* Match h3 size for consistency */
+    color: #333; /* Match text color */
+    white-space: nowrap; /* Prevent date from wrapping */
+}
+
+/* Style for the job description content */
+#timeline .job-details {
+    padding: 1px;
+    background: var(--very-light-blue);
+    border-left: 3px solid var(--secondary-color);
+    display: none; /* Initially hidden, toggled by JavaScript */
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease, max-height 0.5s ease, padding 0.5s ease;
+}
+
+/* List styling for job details, education, and skills */
+section ul {
+    list-style: inside square;
+    padding: 0 15px;
+}
+
+section ul li {
+    padding: 2px 0;
+}
+
+/* Specific styling for links in sections */
+section a {
+    color: var(--link-color);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+section a:hover {
+    color: var(--link-hover);
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+/* Adjustments for active class */
+.entry.active .entry-header {
+    background-color: var(--secondary-color);
+    color: #0645ad; /* Better contrast for accessibility */
+    font-weight: bold;
+}
+
+.entry.active .job-details {
+    display: block; /* Show job details when active */
+    opacity: 1;
+    max-height: 1000px;
+    padding: 15px;
+}
+
+/* Visual cue for clickable items */
+.entry .entry-header:after {
+    content: ' (click to expand)';
+    font-size: 0.8em;
+    color: var(--link-color);
+    margin-left: 10px;
+}
+
+.entry.active .entry-header:after {
+    content: ' (click to collapse)';
+    font-size: 0.8em;
+    color: #333;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+    
+    /* Responsive header */
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-photo {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .profile-info {
+        text-align: center;
+    }
+    
+    .contact-details {
+        align-items: center;
+    }
+    
+    /* Responsive timeline */
+    #timeline .entry-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .entry-header h3 {
+        margin-bottom: 5px;
+    }
+    
+    .entry-header .date {
+        margin-top: 5px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .headshot {
+        width: 120px;
+        height: 120px;
+    }
+    
+    header h1 {
+        font-size: 1.5em;
+    }
+    
+    .contact-details {
+        font-size: 0.9em;
+    }
+    
+    section {
+        padding: 10px;
+    }
+    
+    .contact-icon {
+        margin-right: 5px;
+    }
+}
+
+/* Counter styling */
+.counter {
+    text-align: center;
+    margin: 1px auto 1px;
+    font-size: 0.85em;
+    color: #777;
+}
+
+.counter-number {
+    font-weight: 500;
+}
+
+/* Print styles */
+@media print {
+    body {
+        background-color: white;
+        color: black;
+        font-size: 12pt;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    header {
+        background: none !important;
+        color: black;
+        padding: 10px 0;
+        box-shadow: none;
+        border-bottom: 1px solid #ccc;
+    }
+    
+    .headshot {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .contact-icon, .fab.contact-icon {
+        color: black;
+    }
+    
+    .contact-details a {
+        color: black;
+        border-bottom: none;
+    }
+    
+    section {
+        margin: 10px 0;
+        padding: 10px 0;
+        border-radius: 0;
+        box-shadow: none;
+        border-top: 1px solid #ccc;
+        page-break-inside: avoid;
+    }
+    
+    /* Show all job details when printing */
+    #timeline .job-details {
+        display: block !important;
+        opacity: 1 !important;
+        max-height: none !important;
+        padding: 10px 0 !important;
+        background: none;
+        border-left: none;
+    }
+    
+    #timeline .entry {
+        border-left: none;
+        margin-bottom: 20px;
+        page-break-inside: avoid;
+    }
+    
+    #timeline .entry-header {
+        background: none;
+        border-bottom: 1px solid #ccc;
+        padding: 5px 0;
+        margin-left: 0;
+    }
+    
+    .entry .entry-header:after,
+    .entry.active .entry-header:after {
+        display: none; /* Hide click indicators when printing */
+    }
+    
+    .skip-link, .counter {
+        display: none;
+    }
+    
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+    }
+    
+    /* Don't show URLs for internal links */
+    a[href^="#"]:after {
+        content: "";
+    }
+    
+}
