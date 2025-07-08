@@ -1,0 +1,12 @@
+# Ignore configuration files with sensitive URLs
+website/config.js
+
+# Ignore Lambda functions and DNS records with sensitive information
+lambda_function.py
+lambda_function_minimal.py
+dns-records.csv
+
+# Other common files to ignore
+node_modules/
+.DS_Store
+*.log
