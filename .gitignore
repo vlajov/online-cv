@@ -5,6 +5,7 @@ website/config.js
 lambda_function.py
 lambda_function_minimal.py
 dns-records.csv
+lambda_counter.py
 
 # Other common files to ignore
 node_modules/
