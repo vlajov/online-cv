@@ -2,7 +2,7 @@
 website/config.js
 
 # Ignore Lambda functions and DNS records with sensitive information
-lambda_function.py
+lambda_download_click.py
 lambda_function_minimal.py
 dns-records.csv
 lambda_counter.py
