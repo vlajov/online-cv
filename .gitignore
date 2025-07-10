@@ -1,11 +1,9 @@
-# Ignore configuration files with sensitive URLs
+# Ignore configuration files
 website/config.js
 
-# Ignore Lambda functions and DNS records with sensitive information
-lambda_download_click.py
-lambda_function_minimal.py
+# Ignore Lambda functions and DNS records
+lambda_functions(NO push)/
 dns-records.csv
-lambda_counter.py
 
 # Other common files to ignore
 node_modules/
