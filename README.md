@@ -1,4 +1,4 @@
-# Online CV - Cloud Resume Project
+# Online CV - Cloud Resume Challenge
 
 A serverless online resume website built with AWS cloud services that showcases both frontend design and cloud architecture skills.
 
