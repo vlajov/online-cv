@@ -1,125 +1,94 @@
-# Resume Download Notification Lambda Function
+# Online CV - Cloud Resume Project
 
-This Lambda function sends an email notification when someone downloads your resume. It includes security features like rate limiting and origin validation.
+A serverless online resume website built with AWS cloud services that showcases both frontend design and cloud architecture skills.
 
-## Setup Instructions
+## Overview
 
+This project is a modern, cloud-native personal resume website that combines an interactive frontend with serverless backend services. The site features a clean, responsive design with interactive employment history sections and a visitor counter that tracks site traffic. Built entirely on AWS managed services, it demonstrates how to create a secure, scalable web application without managing any servers.
 
-### 1. Create Lambda Function
+The architecture follows cloud best practices with separate frontend and backend components. The frontend consists of static HTML, CSS, and JavaScript files hosted in an S3 bucket and delivered through CloudFront for optimal performance. The backend uses Lambda functions and DynamoDB to track visitor statistics, with security measures to protect against abuse.
 
-1. Create a new Lambda function running latest Python
-2. Copy the below code into your Lambda function:
-```python
-import json
-import os
-import boto3
-import time
-from botocore.exceptions import ClientError
+Deployment is fully automated through a CI/CD pipeline built with GitHub Actions. When changes are pushed to the main branch, the workflow authenticates to AWS using OIDC (avoiding long-term credentials) and deploys the updated files to S3.
 
-def lambda_handler(event, context):
-    # Get recipient email from environment variable
-    recipient_email = os.environ.get('EMAIL_ADDRESS', 'your-email@example.com')
-    sender_email = 'noreply@yourdomain.com'
-    
-    # Get IP and referer if available
-    source_ip = event.get('requestContext', {}).get('identity', {}).get('sourceIp', 'unknown')
-    referer = event.get('headers', {}).get('referer', 'unknown')
-    
-    # Create email content
-    subject = 'Resume Download Notification'
-    timestamp = time.strftime('%Y-%m-%d %H:%M:%S UTC', time.gmtime())
-    
-    # Simple HTML message
-    html_message = f'''
-    <html>
-    <body style="font-family: Arial, sans-serif;">
-        <h2>Resume Download Notification</h2>
-        <p>Someone has downloaded your resume.</p>
-        <p>Time: {timestamp}<br>
-        IP: {source_ip}<br>
-        Referrer: {referer}</p>
-    </body>
-    </html>
-    '''
-    
-    # Plain text version
-    text_message = f"Resume Download Notification\n\nSomeone has downloaded your resume.\n\nTime: {timestamp}\nIP: {source_ip}\nReferrer: {referer}"
+## Technologies
 
-    try:
-        # Send email using SES
-        ses = boto3.client('ses', region_name='us-east-1')
-        response = ses.send_email(
-            Source=f'"Resume Notification" <{sender_email}>',
-            Destination={'ToAddresses': [recipient_email]},
-            Message={
-                'Subject': {'Data': subject},
-                'Body': {
-                    'Text': {'Data': text_message},
-                    'Html': {'Data': html_message}
-                }
-            }
-        )
-        
-        # Return success response
-        return {
-            'statusCode': 200,
-            'headers': {'Access-Control-Allow-Origin': '*'},
-            'body': json.dumps({'message': 'Notification sent'})
-        }
-        
-    except Exception as e:
-        # Return error response
-        return {
-            'statusCode': 500,
-            'headers': {'Access-Control-Allow-Origin': '*'},
-            'body': json.dumps({'error': str(e)})
-        }
+The project leverages several AWS services working together:
+
+- **Frontend Hosting**: Amazon S3, CloudFront, Route53, ACM
+- **Backend Services**: AWS Lambda, DynamoDB
+- **Development & Deployment**: GitHub Actions with OIDC authentication
+
+The frontend is built with standard web technologies (HTML5, CSS3, JavaScript) with a focus on accessibility and responsive design. Security is implemented at multiple levels through proper CORS configuration, origin validation, and rate limiting.
+
+## Project Structure
+
 ```
-3. Add environment variable by going to Configuration tab then Environment variables:
-   - Key: `EMAIL_ADDRESS`
-   - Value: Your email address where notifications will be sent
-4. Replace `'noreply@yourdomain.com'` with your verified SES email or domain
-
-### 2. Configure Lambda Permissions
-
-1. Add permissions for SES (to send emails) and DynamoDB (for rate limiting)
-2. Create a policy with these permissions and attach it to your Lambda's execution role:
-
-```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ses:SendEmail",
-                "ses:SendRawEmail"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
+.
+├── .github/workflows/  # CI/CD pipeline configuration
+├── website/            # Frontend static website files
+├── README.md           # Project documentation
+└── lambda_function.py  # Download Notification Lambda Function
 ```
 
-### 3. Create Function URL
+```
+                                  +----------------+
+                                  |                |
+                                  |   GitHub       |
+                                  |   Repository   |
+                                  |                |
+                                  +-------+--------+
+                                          |
+                                          | Push to main branch
+                                          |
+                                  +-------v--------+
+                                  |                |
+                                  |   GitHub       |
+                                  |   Actions      |
+                                  |   CI/CD        |
+                                  |                |
+                                  +-------+--------+
+                                          |
+                                          | AWS OIDC Authentication
+                                          | S3 Sync
+                                          |
++----------------+                +-------v--------+
+|                |                |                |
+|   Route 53     +--------------->+   S3 Bucket    |
+|   DNS          |                |   (Website)    |
+|                |                |                |
++-------+--------+                +-------+--------+
+        ^                                 |
+        |                                 | Origin
+        |                                 |
++-------+--------+                +-------v--------+
+|                |                |                |
+|   ACM          +<---------------+   CloudFront   |
+|   Certificate  |                |   CDN          |
+|                |                |                |
++----------------+                +----------------+
+                                          ^
+                                          |
+                                          | API Calls
+                                          |
+                          +---------------+---------------+
+                          |                               |
+            +-------------v-----------+     +-------------v-----------+
+            |                         |     |                         |
+            |   API Gateway           |     |   Lambda Function       |
+            |   (Visitor Counter)     +---->+   (Download             |
+            |                         |     |    Notification)        |
+            +-------------+-----------+     +-------------+-----------+
+                          |                               |
+                          |                               |
+                          v                               v
+                  +-------+-------+               +-------+-------+
+                  |               |               |               |
+                  |   DynamoDB    |               |   SES         |
+                  |   (Counter)   |               |   (Email)     |
+                  |               |               |               |
+                  +---------------+               +---------------+
+```
 
-1. In your Lambda function configuration, go to "Function URL"
-2. Click "Create function URL"
-3. Set Auth type to "NONE"
-4. Configure CORS:
-   - Allow origins: Your website domain (e.g., `https://yourdomain.com`)
-   - Allow methods: POST
-   - Allow headers: content-type
-5. Click "Save"
+## Inspiration
 
-### 4. Update Website Code
-
-Make sure your website's JavaScript code is pointing to your Lambda function URL.
-
-## Security Features
-
-1. **Enhanced Logging**: Includes IP address and timestamp in notifications
-
-## Customization
-
-- Customize the email subject and message as needed
+This project was inspired by Forrest Brazeal's Cloud Resume Challenge, with additional features and security enhancements to create a more robust and production-ready implementation.
