@@ -51,12 +51,12 @@ body {
 }
 
 /* Header styling */
-header {    
+header {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: var(--white);
     padding: 20px;
     background-size: cover;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* New header container for flex layout */
@@ -83,7 +83,7 @@ header {
     height: 150px;
     border-radius: 50%;
     border: 3px solid #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 header h1 {
@@ -130,12 +130,14 @@ header h1 {
 }
 
 .fab.contact-icon {
-    margin-right: 10px; /* Consistent margin with other icons */
+    margin-right: 10px;
+    /* Consistent margin with other icons */
     color: var(--white);
 }
 
 .fab.fa-github {
-    color: #000000; /* GitHub color */
+    color: #000000;
+    /* GitHub color */
 }
 
 .contact-details a {
@@ -143,7 +145,7 @@ header h1 {
     color: var(--white);
     font-weight: 500;
     transition: color 0.3s ease;
-    border-bottom: 1px dotted rgba(255,255,255,0.5);
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.5);
 }
 
 .contact-details a:hover {
@@ -157,7 +159,7 @@ section {
     margin: 20px 0;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     border-top: 3px solid var(--secondary-color);
 }
 
@@ -195,16 +197,23 @@ section h2 {
 
 /* Style for h3 and .date within entry-header */
 .entry-header h3 {
-    margin: 0; /* Remove default margin */
-    font-size: 1.2em; /* Adjust size as needed */
-    flex: 1; /* Take up available space */
+    margin: 0;
+    /* Remove default margin */
+    font-size: 1.2em;
+    /* Adjust size as needed */
+    flex: 1;
+    /* Take up available space */
 }
 
 .entry-header .date {
-    margin: 0; /* Remove default margin */
-    font-size: 1em; /* Match h3 size for consistency */
-    color: #333; /* Match text color */
-    white-space: nowrap; /* Prevent date from wrapping */
+    margin: 0;
+    /* Remove default margin */
+    font-size: 1em;
+    /* Match h3 size for consistency */
+    color: #333;
+    /* Match text color */
+    white-space: nowrap;
+    /* Prevent date from wrapping */
 }
 
 /* Style for the job description content */
@@ -212,7 +221,8 @@ section h2 {
     padding: 1px;
     background: var(--very-light-blue);
     border-left: 3px solid var(--secondary-color);
-    display: none; /* Initially hidden, toggled by JavaScript */
+    display: none;
+    /* Initially hidden, toggled by JavaScript */
     opacity: 0;
     max-height: 0;
     overflow: hidden;
@@ -245,12 +255,14 @@ section a:hover {
 /* Adjustments for active class */
 .entry.active .entry-header {
     background-color: var(--secondary-color);
-    color: #0645ad; /* Better contrast for accessibility */
+    color: #0645ad;
+    /* Better contrast for accessibility */
     font-weight: bold;
 }
 
 .entry.active .job-details {
-    display: block; /* Show job details when active */
+    display: block;
+    /* Show job details when active */
     opacity: 1;
     max-height: 1000px;
     padding: 15px;
@@ -276,36 +288,36 @@ section a:hover {
         width: 95%;
         padding: 10px;
     }
-    
+
     /* Responsive header */
     .header-container {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .profile-photo {
         margin-right: 0;
         margin-bottom: 15px;
     }
-    
+
     .profile-info {
         text-align: center;
     }
-    
+
     .contact-details {
         align-items: center;
     }
-    
+
     /* Responsive timeline */
     #timeline .entry-header {
         flex-direction: column;
         align-items: flex-start;
     }
-    
+
     .entry-header h3 {
         margin-bottom: 5px;
     }
-    
+
     .entry-header .date {
         margin-top: 5px;
     }
@@ -316,19 +328,19 @@ section a:hover {
         width: 120px;
         height: 120px;
     }
-    
+
     header h1 {
         font-size: 1.5em;
     }
-    
+
     .contact-details {
         font-size: 0.9em;
     }
-    
+
     section {
         padding: 10px;
     }
-    
+
     .contact-icon {
         margin-right: 5px;
     }
@@ -353,14 +365,14 @@ section a:hover {
         color: black;
         font-size: 12pt;
     }
-    
+
     .container {
         width: 100%;
         max-width: none;
         padding: 0;
         margin: 0;
     }
-    
+
     header {
         background: none !important;
         color: black;
@@ -368,21 +380,22 @@ section a:hover {
         box-shadow: none;
         border-bottom: 1px solid #ccc;
     }
-    
+
     .headshot {
         width: 100px;
         height: 100px;
     }
-    
-    .contact-icon, .fab.contact-icon {
+
+    .contact-icon,
+    .fab.contact-icon {
         color: black;
     }
-    
+
     .contact-details a {
         color: black;
         border-bottom: none;
     }
-    
+
     section {
         margin: 10px 0;
         padding: 10px 0;
@@ -391,7 +404,7 @@ section a:hover {
         border-top: 1px solid #ccc;
         page-break-inside: avoid;
     }
-    
+
     /* Show all job details when printing */
     #timeline .job-details {
         display: block !important;
@@ -401,42 +414,51 @@ section a:hover {
         background: none;
         border-left: none;
     }
-    
+
     #timeline .entry {
         border-left: none;
         margin-bottom: 20px;
         page-break-inside: avoid;
     }
-    
+
     #timeline .entry-header {
         background: none;
         border-bottom: 1px solid #ccc;
         padding: 5px 0;
         margin-left: 0;
     }
-    
+
     .entry .entry-header:after,
     .entry.active .entry-header:after {
-        display: none; /* Hide click indicators when printing */
+        display: none;
+        /* Hide click indicators when printing */
     }
-    
-    .skip-link, .counter {
+
+    .skip-link,
+    .counter {
         display: none;
     }
-    
+
     a {
         text-decoration: none;
         color: black;
     }
-    
+
     a[href]:after {
         content: " (" attr(href) ")";
         font-size: 0.8em;
     }
-    
+
     /* Don't show URLs for internal links */
     a[href^="#"]:after {
         content: "";
     }
-    
+
+}
+
+/* Archi
+tecture link styling */
+.architecture-link {
+    text-align: center;
+    margin: 0px auto;
 }
