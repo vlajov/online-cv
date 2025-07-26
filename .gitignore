@@ -9,3 +9,6 @@ dns-records.csv
 node_modules/
 .DS_Store
 *.log
+
+# IDE settings
+.vscode/

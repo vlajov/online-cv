@@ -1,143 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vladimir Jovanovski - IT Professional with experience in SAP & IT Support">
-    <meta name="keywords" content="Vladimir Jovanovski, IT Support, SAP, Resume, CV">
-    <title>Vladimir's CV</title>
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Resume web-page built and hosted on AWS" />
-    <meta property="og:description" content="Used S3, CloudFront, Route53, ACM, Lambda, and DynamoDB. Plus GitHub Actions for CI/CD. Project inspired by Forrest Brazeal’s Cloud Resume Challenge." />
-    <meta property="og:image" content="https://vladimircv.com/thumbnail.png" />
-    <meta property="og:url" content="https://vladimircv.com" />
-    <meta property="og:type" content="website" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicons/favicon-16x16.png" type="image/x-icon">
-</head>
-<body>
-    <a href="#employmentHistory" class="skip-link">Skip to content</a>
-    <div class="container">
-        <header>
-            <div class="header-container">
-                <div class="profile-photo">
-                    <img src="photo.webp" alt="Headshot" class="headshot">
-                </div>
-                <div class="profile-info">
-                    <h1 id="name">Vladimir Jovanovski</h1>
-                    <p class="location">Kumanovo, Macedonia</p>
-                    <div class="contact-details">
-                        <p><i class="fas fa-envelope contact-icon" aria-hidden="true"></i> jovanovski@outlook.com</p>
-                        <p><i class="fas fa-phone contact-icon" aria-hidden="true"></i> +389 77 748 180</p>
-                        <p class="linkedin-line"><i class="fab fa-linkedin contact-icon" aria-hidden="true"></i> <a href="https://www.linkedin.com/in/jovanovskivladimir/" aria-label="LinkedIn Profile">LinkedIn</a><a href="CV Vladimir Jovanovski.pdf" class="download-link" download aria-label="Download CV" onclick="sendNotification(); return true;"><i class="fas fa-download" aria-hidden="true"></i> Download CV</a></p>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Vladimir Jovanovski - IT Professional with experience in SAP & IT Support">
+        <meta name="keywords" content="Vladimir Jovanovski, IT Support, SAP, Resume, CV">
+        <meta name="robots" content="index, follow">
+        <meta http-equiv="X-Content-Type-Options" content="nosniff">
+        <title>Vladimir's CV</title>
+
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="Resume web-page built and hosted on AWS" />
+        <meta property="og:description"
+            content="Used S3, CloudFront, Route53, ACM, Lambda, and DynamoDB. Plus GitHub Actions for CI/CD. Project inspired by Forrest Brazeal’s Cloud Resume Challenge." />
+        <meta property="og:image" content="https://vladimircv.com/thumbnail.png" />
+        <meta property="og:url" content="https://vladimircv.com" />
+        <meta property="og:type" content="website" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" href="favicons/favicon-16x16.png" type="image/x-icon">
+    </head>
+
+    <body>
+        <a href="#employmentHistory" class="skip-link">Skip to content</a>
+        <div class="container">
+            <header>
+                <div class="header-container">
+                    <div class="profile-photo">
+                        <img src="photo.webp" alt="Headshot" class="headshot">
+                    </div>
+                    <div class="profile-info">
+                        <h1 id="name">Vladimir Jovanovski</h1>
+                        <p class="location">Kumanovo, Macedonia</p>
+                        <div class="contact-details">
+                            <p><i class="fas fa-envelope contact-icon" aria-hidden="true"></i> jovanovski@outlook.com
+                            </p>
+                            <p><i class="fas fa-phone contact-icon" aria-hidden="true"></i> +389 77 748 180</p>
+                            <p class="linkedin-line"><i class="fab fa-linkedin contact-icon" aria-hidden="true"></i> <a
+                                    href="https://www.linkedin.com/in/jovanovskivladimir/"
+                                    aria-label="LinkedIn Profile">LinkedIn</a><a href="CV Vladimir Jovanovski.pdf"
+                                    class="download-link" download aria-label="Download CV" id="download-cv"><i
+                                        class="fas fa-download" aria-hidden="true"></i> Download CV</a></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </header>
-        <section id="employmentHistory">
-            <h2>Employment History</h2>
-            <div id="timeline">
-                <article id="indaver" class="entry">
-                    <div class="entry-header">
-                        <h3>SAP & IT Support Analyst at <a href="https://indaver.com/">Indaver Group</a></h3>
-                        <p class="date">April 2024 - June 2025</p>
-                    </div>
-                    <div class="job-details">
-                      <p>Responsible for the 1st line support for IT and business applications related questions for end-users in various countries (BE, NL, DE, PT, ES, IT, EN, IE).</p>
-                      <ul>
-                        <li>Handle support requests from end users via ServiceNow, email/chat, and phone, ensuring timely and effective resolution.</li>
-                        <li>Perform daily checks on critical SAP processes, taking appropriate action to maintain system integrity.</li>
-                        <li>Diagnose and resolve issues by accurately identifying root causes and implementing suitable solutions.</li>
-                        <li>Manage user accounts and permissions in SAP IDM and company's proprietary web applications, ensuring secure and efficient access.</li>
-                        <li>Escalate complex problems to 2nd line support, ensuring accurate and timely handover.</li>
-                        <li>Follow up with customers and 2nd line support to confirm issue resolution and maintain high customer satisfaction.</li>
-                        <li>Participate in testing new developments and improvements to existing workflows, contributing to continuous improvement.</li>
-                        <li>Creating knowledge base articles about issues and their resolutions, enhancing the library for future reference.</li>
-                      </ul>
-                    </div>
-                </article>
-                <article id="coca-cola" class="entry">
-                    <div class="entry-header">
-                    <h3>IT Support Specialist at <a href="https://www.coca-colahellenic.com/">Coca-Cola Hellenic Bottling Company</a></h3>
-                    <p class="date">February 2022 - May 2023</p>
+            </header>
+            <section id="employmentHistory">
+                <h2>Employment History</h2>
+                <div id="timeline">
+                    <article id="indaver" class="entry">
+                        <div class="entry-header">
+                            <h3>SAP & IT Support Analyst at <a href="https://indaver.com/">Indaver Group</a></h3>
+                            <p class="date">April 2024 - June 2025</p>
+                        </div>
+                        <div class="job-details">
+                            <p>Responsible for the 1st line support for IT and business applications related questions
+                                for end-users in various countries (BE, NL, DE, PT, ES, IT, EN, IE).</p>
+                            <ul>
+                                <li>Handle support requests from end users via ServiceNow, email/chat, and phone,
+                                    ensuring timely and effective resolution.</li>
+                                <li>Perform daily checks on critical SAP processes, taking appropriate action to
+                                    maintain system integrity.</li>
+                                <li>Diagnose and resolve issues by accurately identifying root causes and implementing
+                                    suitable solutions.</li>
+                                <li>Manage user accounts and permissions in SAP IDM and company's proprietary web
+                                    applications, ensuring secure and efficient access.</li>
+                                <li>Escalate complex problems to 2nd line support, ensuring accurate and timely
+                                    handover.</li>
+                                <li>Follow up with customers and 2nd line support to confirm issue resolution and
+                                    maintain high customer satisfaction.</li>
+                                <li>Participate in testing new developments and improvements to existing workflows,
+                                    contributing to continuous improvement.</li>
+                                <li>Creating knowledge base articles about issues and their resolutions, enhancing the
+                                    library for future reference.</li>
+                            </ul>
+                        </div>
+                    </article>
+                    <article id="coca-cola" class="entry">
+                        <div class="entry-header">
+                            <h3>IT Support Specialist at <a href="https://www.coca-colahellenic.com/">Coca-Cola Hellenic
+                                    Bottling Company</a></h3>
+                            <p class="date">February 2022 - May 2023</p>
+                        </div>
+                        <div class="job-details">
+                            <p>Providing IT Support for Coca-Cola HBC employees in North Macedonia, Serbia, Montenegro,
+                                Kosovo, Croatia, and Bosnia and Herzegovina </p>
+                            <ul>
+                                <li>Respond to end-user inquiries via phone, email, and Teams messages, ensuring prompt
+                                    and effective support.</li>
+                                <li>Diagnose and resolve IT issues with equipment and applications, providing efficient
+                                    solutions for end-users.</li>
+                                <li>Address end-user needs strategically, considering business requirements and
+                                    organizational hierarchy.</li>
+                                <li>Participate in ICT projects, delivering new functionalities and improvements to
+                                    end-users.</li>
+                                <li>Resolve minor issues quickly and establish timelines and protocols for more complex
+                                    problems.</li>
+                                <li>Communicate effectively with Level 2 support to enhance problem-solving efficiency.
+                                </li>
+                                <li>Collaborate with Service Desk Analysts to balance creative and technical solutions.
+                                </li>
+                                <li>Monitor and analyze users and devices using Intune for optimal performance.</li>
+                                <li>Maintain and update KB documentation, ensuring accurate and current information.
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+                    <article id="frelance" class="entry">
+                        <div class="entry-header">
+                            <h3>IT Support Provider and Translator | Freelance Contractor</h3>
+                            <p class="date">Feb 2015 - Dec 2021</p>
+                        </div>
+                        <div class="job-details">
+                            <p>Contract based with National Museum of Kumanovo and local SMEs </p>
+                            <ul>
+                                <li>Install hardware and software.</li>
+                                <li>Managing groups and users accounts in Active Directory.</li>
+                                <li>Microsoft 365 (creating mailboxes, distribution lists, delegations).</li>
+                                <li>Troubleshooting and updating drivers.</li>
+                                <li>Set up and configure peripherals (printers, projectors, speakers).</li>
+                                <li>Using apps for remote access (TeamViewer, Remote Desktop, AnyDesk, LogMeIn).</li>
+                            </ul>
+                        </div>
+                    </article>
                 </div>
-                    <div class="job-details">
-                        <p>Providing IT Support for Coca-Cola HBC employees in North Macedonia, Serbia, Montenegro, Kosovo, Croatia, and Bosnia and Herzegovina </p>
-                        <ul>
-                          <li>Respond to end-user inquiries via phone, email, and Teams messages, ensuring prompt and effective support.</li>
-                          <li>Diagnose and resolve IT issues with equipment and applications, providing efficient solutions for end-users.</li>
-                          <li>Address end-user needs strategically, considering business requirements and organizational hierarchy.</li>
-                          <li>Participate in ICT projects, delivering new functionalities and improvements to end-users.</li>
-                          <li>Resolve minor issues quickly and establish timelines and protocols for more complex problems.</li>
-                          <li>Communicate effectively with Level 2 support to enhance problem-solving efficiency.</li>
-                          <li>Collaborate with Service Desk Analysts to balance creative and technical solutions.</li>
-                          <li>Monitor and analyze users and devices using Intune for optimal performance.</li>
-                          <li>Maintain and update KB documentation, ensuring accurate and current information.</li>
-                        </ul>
-                    </div>
-                </article>
-                <article id="frelance" class="entry">
-                    <div class="entry-header">
-                    <h3>IT Support Provider and Translator | Freelance Contractor</h3>
-                    <p class="date">Feb 2015 - Dec 2021</p>
-                </div>
-                    <div class="job-details">
-                        <p>Contract based with National Museum of Kumanovo and local SMEs </p>
-                        <ul>
-                          <li>Install hardware and software.</li>
-                          <li>Managing groups and users accounts in Active Directory.</li>
-                          <li>Microsoft 365 (creating mailboxes, distribution lists, delegations).</li>
-                          <li>Troubleshooting and updating drivers.</li>
-                          <li>Set up and configure peripherals (printers, projectors, speakers).</li>
-                          <li>Using apps for remote access (TeamViewer, Remote Desktop, AnyDesk, LogMeIn).</li>
-                        </ul>
-                    </div>                    
-                </article>
-            </div>
-        </section>
-        <section id="skills">
-            <h2>Certifications</h2>
-             <ul>
-                <li><a href="https://www.credly.com/badges/2b708dd4-8c72-4aec-9ccf-ff0505e5dee5/linked_in_profile">AWS Solutions Architect Associate</a></li>
-                    <p>Practicing in my own AWS account > <a href="https://github.com/vlajov?tab=repositories" aria-label="GitHub Profile"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></p>
-                <li><a href="https://www.coursera.org/account/accomplishments/verify/SPHS4AWWKXK5">English Composition I</a></li>
-                <li><a href="https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy8wNWI3ZWMyZTgyZDE4MzgxL0VZR0QwWUl1N0xjZ2dBVUlBZ0FBQUFBQmdLV29VZUczS1Z0OVlGWmlyaTdjY1E&cid=05B7EC2E82D18381&id=5B7EC2E82D18381%21520&parId=5B7EC2E82D18381%21495&o=OneUp">TOEFL iBT</a></li>
-            </ul>
-        </section>
-        <section id="education">
-            <h2>Education</h2>
-            <ul>
-            <li>BA in Turkish Language and Literature, University of Sarajevo, 2016 - 2019</li>
-            <li>BA in Archaeology, University of Ss. Cyril and Methodius in Skopje, 2008 - 2013</li>
-            </ul>
-        </section>
-    </div>
-<div style="text-align: center; margin: 0px auto;">
-    <a href="https://vladimircv.com/diagram.svg">Architecture Diagram</a>
-</div>
-      <div class="counter">
-                <p class="counter-text">This page has been viewed <span class="counter-number">0</span> times!</p></div>
-    <script src="config.js"></script>
-    <script src="scripts.js"></script>
-    <script src="index.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-      function sendNotification() {
-        // Make an AJAX request to the Lambda function URL
-        $.ajax({
-          url: CONFIG.NOTIFICATION_URL,
-          type: 'POST',
-          success: function(response) {
-            console.log('Resume download notification sent successfully');
-          },
-          error: function(error) {
-            console.error('Error sending resume download notification:', error);
-          }
-        });
-      }
-    </script>
-    <noscript>This resume contains interactive elements that require JavaScript to be enabled.</noscript>
-</body>
+            </section>
+            <section id="skills">
+                <h2>Certifications</h2>
+                <ul>
+                    <li><a href="https://www.credly.com/badges/2b708dd4-8c72-4aec-9ccf-ff0505e5dee5/linked_in_profile">AWS
+                            Solutions Architect Associate</a></li>
+                    <p>Practicing in my own AWS account > <a href="https://github.com/vlajov?tab=repositories"
+                            aria-label="GitHub Profile"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></p>
+                    <li><a href="https://www.coursera.org/account/accomplishments/verify/SPHS4AWWKXK5">English
+                            Composition I</a></li>
+                    <li><a
+                            href="https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy8wNWI3ZWMyZTgyZDE4MzgxL0VZR0QwWUl1N0xjZ2dBVUlBZ0FBQUFBQmdLV29VZUczS1Z0OVlGWmlyaTdjY1E&cid=05B7EC2E82D18381&id=5B7EC2E82D18381%21520&parId=5B7EC2E82D18381%21495&o=OneUp">TOEFL
+                            iBT</a></li>
+                </ul>
+            </section>
+            <section id="education">
+                <h2>Education</h2>
+                <ul>
+                    <li>BA in Turkish Language and Literature, University of Sarajevo, 2016 - 2019</li>
+                    <li>BA in Archaeology, University of Ss. Cyril and Methodius in Skopje, 2008 - 2013</li>
+                </ul>
+            </section>
+        </div>
+        <div class="architecture-link">
+            <a href="https://vladimircv.com/diagram.svg">Architecture Diagram</a>
+        </div>
+        <div class="counter">
+            <p class="counter-text">This page has been viewed <span class="counter-number">0</span> times!</p>
+        </div>
+        <script src="config.js"></script>
+        <script src="scripts.js"></script>
+        <script src="index.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="notifications.js"></script>
+
+        <noscript>This resume contains interactive elements that require JavaScript to be enabled.</noscript>
+    </body>
+
 </html>
