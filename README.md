@@ -2,6 +2,10 @@
 
 A serverless online resume website built with AWS cloud services that showcases both frontend design and cloud architecture skills.
 
+## Inspiration
+
+This was inspired by Forrest Brazeal's Cloud Resume Challenge, with additional features and security enhancements to create a more robust and production-ready implementation.
+
 ## Overview
 
 This project is a modern, cloud-native personal resume website that combines an interactive frontend with serverless backend services. The site features a clean, responsive design with interactive employment history sections and a visitor counter that tracks site traffic. Built entirely on AWS managed services, it demonstrates how to create a secure, scalable web application without managing any servers.
@@ -19,6 +23,24 @@ The project leverages several AWS services working together:
 - **Development & Deployment**: GitHub Actions with OIDC authentication
 
 The frontend is built with standard web technologies (HTML5, CSS3, JavaScript) with a focus on accessibility and responsive design. Security is implemented at multiple levels through proper CORS configuration, origin validation, and rate limiting.
+
+## Security Features
+
+### DNSSEC Implementation (configured out of curiosity, not part of the original project)
+
+Enhanced DNS security through DNSSEC (Domain Name System Security Extensions) implementation on Route53:
+
+- Lowered hosted zone TTL to 3600 seconds and SOA TTL (600 seconds) and minimum field (300 seconds) values to expedite DNS updates and enable safer rollback
+- Enabled DNSSEC signing in Route53 and created a Key Signing Key (KSK) using AWS KMS
+- Monitored zone signing effectiveness using GetChange API to verify all Route53 DNS servers achieved INSYNC status and began signing responses
+- Published DS record at registrar (external to AWS) to complete chain of trust
+
+Verified DS record propagation to the .com TLD servers using the command:
+`dig vladimircv.com DS @k.gtld-servers.net`
+
+The chain of trust ensures that DNS resolvers can cryptographically verify the authenticity of DNS responses for the domain, providing protection against DNS spoofing and cache poisoning attacks.
+
+[Detailed step-by-step and rollback instructions](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html)
 
 ## Project Structure
 
@@ -88,7 +110,3 @@ The frontend is built with standard web technologies (HTML5, CSS3, JavaScript) w
                   |               |               |               |
                   +---------------+               +---------------+
 ```
-
-## Inspiration
-
-This project was inspired by Forrest Brazeal's Cloud Resume Challenge, with additional features and security enhancements to create a more robust and production-ready implementation.
