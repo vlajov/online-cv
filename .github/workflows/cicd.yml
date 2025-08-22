@@ -15,13 +15,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: REDACTED
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: us-east-1
-      
+
       - name: Deploy to S3
         run: |
           aws s3 sync ./website s3://${{ secrets.AWS_S3_BUCKET }} --delete
